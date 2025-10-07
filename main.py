@@ -24,7 +24,7 @@ def calculate_ny_tax(subtotal: float) -> float:
     tax_rate = 0.08875
     tax = subtotal * tax_rate
     return tax
-    # total_with_tax= subtotal + tax
+    
 
 def get_tip_percentage(total_with_tax):
     print("Tip options: 1) 15%  2) 18%  3) 20%  4) Custom")
@@ -39,8 +39,8 @@ def get_tip_percentage(total_with_tax):
         percent = float(input("Enter your tip %: "))
     else:
         percent = 15
-    return round(subtotal * percent / 100, 2)
-
+    
+    return round(floating_number * percent / 100, 2)
 
 
 
@@ -49,15 +49,24 @@ def get_tip_percentage(total_with_tax):
 
 
 #PRINTING OUT THE RECIEPT
+#funtion 1 & 2
 greeting_user()
 print("------------------------------------------------------")
 subtotal= input("Please input your total before tax: ")
 #to make sure the number could be a float
 floating_number= float(subtotal)
-
 get_bill_total(floating_number)
 
+
+#funtion 3
 tax = calculate_ny_tax(floating_number)
-print(tax)
-get_tip_percentage(total_with_tax)
-total_with_tax= subtotal + tax
+total_with_tax= round(floating_number + tax)
+print(f"Your total with tax is {total_with_tax}")
+
+#funtion 4
+tip_amount = get_tip_percentage(total_with_tax)
+print(f"The tip amount is ${tip_amount}")
+total_with_tax= floating_number + tax
+grand_total = round float(total_with_tax + tip_amount)
+
+print(f"Grand total ${grand_total}")
