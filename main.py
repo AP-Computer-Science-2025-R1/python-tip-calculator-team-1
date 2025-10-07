@@ -11,6 +11,26 @@ def get_bill_total (pre_tax):
     print (f"Your total before tax is {pre_tax}")
 
 
+def calculate_ny_tax(subtotal: float) -> float:
+    """
+    Calculates the sales tax based on the subtotal provided.
+
+    Parameters:
+    subtotal (float): The subtotal amount before tax.
+
+    Returns:
+    float: The calculated tax amount.
+    """
+    tax_rate = 0.08875
+    tax = subtotal * tax_rate
+    return tax
+
+
+
+
+
+
+
 
 #PRINTING OUT THE RECIEPT
 greeting_user()
