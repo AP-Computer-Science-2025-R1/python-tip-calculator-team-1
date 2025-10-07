@@ -8,7 +8,7 @@ def greeting_user ():
 
 #GETTING PRE-TAX TOTAL
 def get_bill_total (pre_tax):
-    print (f"Your total before tax is {pre_tax}")
+    print (f"Your total before tax is {subtotal}")
 
 
 def calculate_ny_tax(subtotal: float) -> float:
@@ -24,8 +24,9 @@ def calculate_ny_tax(subtotal: float) -> float:
     tax_rate = 0.08875
     tax = subtotal * tax_rate
     return tax
+    # total_with_tax= subtotal + tax
 
-def get_tip_percentage(subtotal):
+def get_tip_percentage(total_with_tax):
     print("Tip options: 1) 15%  2) 18%  3) 20%  4) Custom")
     option = input("Choose (1-4): ")
     if option == "1":
@@ -50,8 +51,13 @@ def get_tip_percentage(subtotal):
 #PRINTING OUT THE RECIEPT
 greeting_user()
 print("------------------------------------------------------")
-pre_tax= input("Please input your total before tax: ")
+subtotal= input("Please input your total before tax: ")
 #to make sure the number could be a float
-floating_number= float(pre_tax)
+floating_number= float(subtotal)
 
 get_bill_total(floating_number)
+
+tax = calculate_ny_tax(floating_number)
+print(tax)
+get_tip_percentage(total_with_tax)
+total_with_tax= subtotal + tax
