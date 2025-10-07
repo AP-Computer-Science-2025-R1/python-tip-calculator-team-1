@@ -25,6 +25,21 @@ def calculate_ny_tax(subtotal: float) -> float:
     tax = subtotal * tax_rate
     return tax
 
+def get_tip_percentage(subtotal):
+    print("Tip options: 1) 15%  2) 18%  3) 20%  4) Custom")
+    option = input("Choose (1-4): ")
+    if option == "1":
+        percent = 15
+    elif option == "2":
+        percent = 18
+    elif option == "3":
+        percent = 20
+    elif option == "4":
+        percent = float(input("Enter your tip %: "))
+    else:
+        percent = 15
+    return round(subtotal * percent / 100, 2)
+
 
 
 
