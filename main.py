@@ -60,13 +60,13 @@ get_bill_total(floating_number)
 
 #funtion 3
 tax = calculate_ny_tax(floating_number)
-total_with_tax= round(floating_number + tax)
+total_with_tax= round (floating_number + tax, 2)
 print(f"Your total with tax is {total_with_tax}")
 
 #funtion 4
 tip_amount = get_tip_percentage(total_with_tax)
 print(f"The tip amount is ${tip_amount}")
-total_with_tax= floating_number + tax
-grand_total = round float(total_with_tax + tip_amount)
+total_with_tax= round (floating_number + tax, 2)
+grand_total = round(total_with_tax + tip_amount, 2)
 
 print(f"Grand total ${grand_total}")
