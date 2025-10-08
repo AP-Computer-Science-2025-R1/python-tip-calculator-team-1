@@ -7,10 +7,10 @@ def greeting_user ():
     print("Welcome to the NYC Tip Calculator!")
 
 #GETTING PRE-TAX TOTAL
-def get_bill_total (pre_tax):
-    print (f"Your total before tax is {subtotal}")
+def get_bill_total (subtotal):
+    print ()
 
-
+#CALCULATING TAX
 def calculate_ny_tax(subtotal: float) -> float:
     """
     Calculates the sales tax based on the subtotal provided.
@@ -25,7 +25,7 @@ def calculate_ny_tax(subtotal: float) -> float:
     tax = subtotal * tax_rate
     return tax
     
-
+#CALCULATING TIP 
 def get_tip_percentage(total_with_tax):
     print("Tip options: 1) 15%  2) 18%  3) 20%  4) Custom")
     option = input("Choose (1-4): ")
@@ -44,29 +44,36 @@ def get_tip_percentage(total_with_tax):
 
 
 
-
-
-
-
 #PRINTING OUT THE RECIEPT
-#funtion 1 & 2
+#funtions 1 & 2
 greeting_user()
 print("------------------------------------------------------")
-subtotal= input("Please input your total before tax: ")
-#to make sure the number could be a float
+#getting user input
+subtotal= input("What was the total for your bill? $")
+#to make sure the subtotal could be a float
 floating_number= float(subtotal)
 get_bill_total(floating_number)
 
 
 #funtion 3
-tax = calculate_ny_tax(floating_number)
+# rounding all numbers to the nearest hundreth for accuracy (,2) allows that to happen
+tax = round(calculate_ny_tax(floating_number), 2)
 total_with_tax= round (floating_number + tax, 2)
-print(f"Your total with tax is {total_with_tax}")
 
 #funtion 4
 tip_amount = get_tip_percentage(total_with_tax)
-print(f"The tip amount is ${tip_amount}")
+# rounding all numbers to the nearest hundreth for accuracy (,2) allows that to happen
 total_with_tax= round (floating_number + tax, 2)
 grand_total = round(total_with_tax + tip_amount, 2)
 
+# PRINTING OUT MOST OF THE RECIEPT
+print()
+print("Calculating your total...")
+print("------------------------------------------------------")
+print("Here is your bill summary: ")
+print(f"Subtotal: ${subtotal}")
+print(f"NYC Tax : ${tax}")
+print(f"Total with tax : ${total_with_tax}")
+print(f"Tip : ${tip_amount}")
+print("------------------------------------------------------")
 print(f"Grand total ${grand_total}")
